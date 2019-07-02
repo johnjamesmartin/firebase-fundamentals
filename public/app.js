@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', event => {
   const app = firebase.app();
+});
+
+function uploadFile(files) {
+  const storageRef = firebase.storage().ref();
+  const horseRef = storageRef.child('horse.jpg');
+  const file = files.item(0);
+  const task = horseRef.put(file);
+  task.then(snapshot => {
+    const url = snapshot.downloadURL;
+    document.querySelector('#imgUpload').setAttribute('src', url);
+  });
+}
+/*
+document.addEventListener('DOMContentLoaded', event => {
+  const app = firebase.app();
   const db = firebase.firestore();
   const productsRef = db.collection('products');
   const query = productsRef.where('price', '>', 4);
@@ -10,7 +25,7 @@ document.addEventListener('DOMContentLoaded', event => {
       document.write(`${data.name} at ${data.price}<br/>`);
     });
   });
-});
+});*/
 
 /*
 document.addEventListener('DOMContentLoaded', event => {

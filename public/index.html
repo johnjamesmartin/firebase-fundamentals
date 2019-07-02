@@ -19,6 +19,11 @@
     <h1 id="title"></h1>
     <input type="text" onchange="updatePost(event)">
   </input>
+  <br/><br/>
+  <h1>Storage uploads</h1>
+  <input type="file" onchange="uploadFile(this.files)"/>
+  <hr>
+  <img id="imgUpload" src="" alt="" width="100vw" style="border: 1px solid red">
     <script src="app.js"></script>
   </body>
 </html>
